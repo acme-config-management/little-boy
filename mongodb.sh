@@ -4,3 +4,4 @@ apt-get update
 apt-get install -y mongodb-org
 cp /vagrant/mongodb.service /etc/systemd/system/mongodb.service
 systemctl start mongodb
+export LC_ALL=C
