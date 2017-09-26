@@ -1,0 +1,52 @@
+{
+  "name": "little-boy",
+  "version": "1.0.0",
+  "description": "Server A for Configuration Management Project",
+  "main": "dist",
+  "scripts": {
+    "dev": "better-npm-run dev",
+    "build": "babel src -d dist",
+    "start": "node dist",
+    "prestart": "npm run -s build"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "nodemon -L -w src --exec \"babel-node src\"",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acme-config-management/little-boy.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "ansible",
+    "vagrant",
+    "configuration-management"
+  ],
+  "author": "fmenkes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acme-config-management/little-boy/issues"
+  },
+  "homepage": "https://github.com/acme-config-management/little-boy#readme",
+  "dependencies": {
+    "better-npm-run": "^0.1.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.15.5",
+    "mongoose": "^4.11.13"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-plugin-import": "^2.7.0"
+  }
+}
