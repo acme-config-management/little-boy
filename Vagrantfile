@@ -16,6 +16,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "init.sh"
   config.vm.provision :shell, path: "nodejs.sh"
   config.vm.provision :shell, path: "mongodb.sh"
+  config.vm.provision :shell, path: "run.sh"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

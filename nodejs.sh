@@ -6,4 +6,3 @@ sudo n latest
 sudo apt-get -y remove nodejs
 sudo ln -s /usr/bin/node /usr/bin/nodejs
 cd /vagrant && npm install
-npm run dev
