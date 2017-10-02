@@ -6,6 +6,9 @@ import Example from './models/Example';
 // Connect to port defined in environment, otherwise, default to 8080
 const port = process.env.PORT || 8080;
 
+const dbURI = process.env.DB_URI || 'localhost';
+const dbName = process.env.DB_NAME || '2dv514';
+
 // Create server
 const app = express();
 
@@ -31,7 +34,7 @@ const seed = () => {
 
 // Connect to the mongoDB instance running on the same machine.
 const connect = () => {
-  mongoose.connect('mongodb://localhost/2dv514', {
+  mongoose.connect(`mongodb://${dbURI}/${dbName}`, {
     useMongoClient: true,
   }, (err) => {
     if (err) {
