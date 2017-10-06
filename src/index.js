@@ -1,7 +1,10 @@
 import express, { Router } from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
 import Example from './models/Example';
+
+dotenv.config();
 
 // Connect to port defined in environment, otherwise, default to 8080
 const port = process.env.PORT || 8080;
