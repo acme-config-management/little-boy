@@ -79,7 +79,7 @@ router.get('/hello', (req, res) => {
     const { servicename, message } = example;
 
     return res.status(200)
-      .json({ servicename, message, origin: os.networkInterfaces().en0[0].address });
+      .json({ servicename, message, origin: os.networkInterfaces().enp0s8[0].address });
   });
 });
 
