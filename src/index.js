@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import Example from './models/Example';
+import os from 'os';
 
 dotenv.config();
 
@@ -61,9 +62,9 @@ mongoose.connection.on('disconnected', connect);
 app.use(bodyParser.json());
 
 // CORS headers
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -77,7 +78,8 @@ router.get('/hello', (req, res) => {
 
     const { servicename, message } = example;
 
-    return res.status(200).json({ servicename, message });
+    return res.status(200)
+      .json({ servicename, message, origin: os.networkInterfaces().en0[0].address });
   });
 });
 
