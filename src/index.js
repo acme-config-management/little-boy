@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import Example from './models/Example';
-import os from 'os';
 
 dotenv.config();
 
@@ -14,6 +13,7 @@ const dbUser = process.env.DB_USER || 'user';
 const dbPass = process.env.DB_PASS || 'password';
 const dbURI = process.env.DB_URI || 'localhost';
 const dbName = process.env.DB_NAME || '2dv514';
+const origin = process.env.HOST_ADDRESS || 'localhost';
 
 // Create server
 const app = express();
@@ -79,7 +79,7 @@ router.get('/hello', (req, res) => {
     const { servicename, message } = example;
 
     return res.status(200)
-      .json({ servicename, message, origin: os.networkInterfaces().enp0s8[0].address });
+      .json({ servicename, message, origin });
   });
 });
 
